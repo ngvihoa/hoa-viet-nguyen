@@ -4,10 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Before running
 
-Please install all dependencies and run json-server first.
+Please install all dependencies first.
 
-1. To install all dependencies: `npm install`
-2. To run json-server: `npx json-server --watch src/data/prices.json --port 3005`
+To install all dependencies: `npm install`
 
 ## Available Scripts
 
