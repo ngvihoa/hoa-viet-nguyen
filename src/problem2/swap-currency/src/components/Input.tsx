@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { prices } from "../data/prices";
-import Arrow from "../asset/arrow.svg";
-import { TokenPrice } from "../interfaces/tokenPrices";
-import { tokenIcons } from "../data/token-icons";
+import Arrow from "asset/arrow.svg";
+import { TokenPrice } from "interfaces/tokenPrices";
+import { tokenIcons } from "data/token-icons";
 
 interface InputProps {
   label: string;
@@ -39,7 +38,7 @@ const Input = ({
   };
 
   return (
-    <div className="flex flex-col gap-1 flex-1">
+    <div className="w-full flex flex-col gap-1 flex-1">
       <label htmlFor={inputName} className="font-semibold">
         {label}
       </label>
