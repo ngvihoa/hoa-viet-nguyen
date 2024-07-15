@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Before running
+
+Please install all dependencies and run json-server first.
+
+1. To install all dependencies: `npm install`
+2. To run json-server: `npx json-server --watch src/data/prices.json --port 3005`
+
 ## Available Scripts
 
 In the project directory, you can run:
