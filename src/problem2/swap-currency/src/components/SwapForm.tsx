@@ -20,9 +20,7 @@ const SwapForm = () => {
   const [sendToken, setSendToken] = useState<number>(0);
   const [receiveToken, setReceiveToken] = useState<number>(0);
   const [sendAmount, setSendAmount] = useState<string>("0");
-  const [receiveAmount, setReceiveAmount] = useState<string>("0");
-
-  const [errorType, setErrorType] = useState(false);
+  const [receiveAmount, setReceiveAmount] = useState<string>("0.00");
 
   const handleChangeSendToken = (newToken: number) => {
     setSendToken(newToken);
@@ -39,7 +37,6 @@ const SwapForm = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setErrorType(false);
     setLoadingSwap(true);
     setButtonDisable(true);
 
@@ -47,7 +44,7 @@ const SwapForm = () => {
       if (isNaN(Number(sendAmount))) {
         setLoadingSwap(false);
         setButtonDisable(false);
-        setErrorType(true);
+        toast.error("Input must be a number!");
         return;
       }
       const newReceiveAmount: number =
@@ -133,11 +130,6 @@ const SwapForm = () => {
               onChangeAmount={handleChangeReceiveAmount}
             />
           </div>
-          {errorType && (
-            <p className="text-red-600 mt-4">
-              <i>Amount to send</i> input must be a number
-            </p>
-          )}
           <button
             className="mt-4 w-full px-4 py-2 bg-violet-500 rounded-lg text-white font-semibold
           hover:bg-violet-600 transition-all duration-300 ease-out flex gap-2 justify-center items-center"
