@@ -23,7 +23,7 @@ interface FormattedWalletBalance {
   formatted: string;
 }
 */
-/* Issue: Checkout Issues-4.3  ---> Deleted */
+/* Issue: Checkout Issues-5.3  ---> Deleted */
 
 interface Props extends BoxProps {}
 
@@ -100,7 +100,14 @@ const WalletPage: React.FC<Props> = (props: Props) => {
         // NEW-version:
         return rightPriority - leftPriority;
       });
+
+    /* OLD-version:
   }, [balances, prices]);
+  */
+    /* Issues-4: 
+    The code in useMemo() has no place using `prices` --> delete `prices` from dependency array.
+  */
+  }, [balances]);
 
   /* OLD-version:
     const formattedBalances = sortedBalances.map((balance: WalletBalance) => {
@@ -125,7 +132,7 @@ const WalletPage: React.FC<Props> = (props: Props) => {
         }
     );
 */
-  /* Issues-4:
+  /* Issues-5:
   Based on the old-version, we can see that the code want to render a list of wallets base on the sorted list of balances `sortedBalances` after formatting. Therefore, we have several issues:
     1. `formattedBalances`, the list of formatted balances is not used when render the list of <WalletRow/>.
 
